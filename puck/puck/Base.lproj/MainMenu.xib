@@ -685,24 +685,42 @@
             <items>
                 <menuItem title="Get new r/hockey posts" id="5vI-73-iaS">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="toggleGetNewPosts:" target="Voe-Tx-rLC" id="8E3-2U-CDE"/>
+                    </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="0aH-gP-UCZ"/>
                 <menuItem title="Sound Enabled" id="I6p-ex-haJ">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="toggleSound:" target="Voe-Tx-rLC" id="6f2-PM-A5u"/>
+                    </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="Ukr-kl-Njm"/>
                 <menuItem title="Open r/hockey/new" id="OAG-Vb-f1m">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openURL:" target="Voe-Tx-rLC" id="HbM-cS-XKS"/>
+                    </connections>
                 </menuItem>
-                <menuItem title="Open /r/hockey" id="5Lf-d6-2Fz">
+                <menuItem title="Open /r/hockey" tag="1" id="5Lf-d6-2Fz">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openURL:" target="Voe-Tx-rLC" id="fnO-ct-HnT"/>
+                    </connections>
                 </menuItem>
-                <menuItem title="Open nhl.com" id="ZJr-pi-04O">
+                <menuItem title="Open nhl.com" tag="2" id="ZJr-pi-04O">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openURL:" target="Voe-Tx-rLC" id="Jy4-n2-VCC"/>
+                    </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="Ohg-Le-Ng0"/>
                 <menuItem title="Quit" id="jdt-yp-4Dz">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="quitApp:" target="Voe-Tx-rLC" id="wWK-Qj-gD1"/>
+                    </connections>
                 </menuItem>
             </items>
             <point key="canvasLocation" x="548" y="219"/>

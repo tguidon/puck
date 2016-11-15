@@ -11,6 +11,8 @@
 		E8E48C531DDA7D630079B4EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E48C521DDA7D630079B4EC /* AppDelegate.swift */; };
 		E8E48C551DDA7D630079B4EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8E48C541DDA7D630079B4EC /* Assets.xcassets */; };
 		E8E48C581DDA7D630079B4EC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E48C561DDA7D630079B4EC /* MainMenu.xib */; };
+		E8E48C601DDA805F0079B4EC /* NHL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E48C5F1DDA805F0079B4EC /* NHL.swift */; };
+		E8E48C621DDA863E0079B4EC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E48C611DDA863E0079B4EC /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		E8E48C541DDA7D630079B4EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8E48C571DDA7D630079B4EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		E8E48C591DDA7D630079B4EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8E48C5F1DDA805F0079B4EC /* NHL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHL.swift; sourceTree = "<group>"; };
+		E8E48C611DDA863E0079B4EC /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				E8E48C521DDA7D630079B4EC /* AppDelegate.swift */,
+				E8E48C611DDA863E0079B4EC /* Utilities.swift */,
+				E8E48C5F1DDA805F0079B4EC /* NHL.swift */,
 				E8E48C541DDA7D630079B4EC /* Assets.xcassets */,
 				E8E48C561DDA7D630079B4EC /* MainMenu.xib */,
 				E8E48C591DDA7D630079B4EC /* Info.plist */,
@@ -205,6 +211,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8E48C621DDA863E0079B4EC /* Utilities.swift in Sources */,
+				E8E48C601DDA805F0079B4EC /* NHL.swift in Sources */,
 				E8E48C531DDA7D630079B4EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
