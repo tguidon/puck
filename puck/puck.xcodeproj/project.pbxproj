@@ -330,6 +330,7 @@
 			baseConfigurationReference = 666FDB1D89030AB04C0CD3AD /* Pods-puck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4ZMW5MD4WT;
 				INFOPLIST_FILE = puck/Info.plist;
@@ -345,6 +346,7 @@
 			baseConfigurationReference = 7A2B4B4AABC4ED4B323E89B9 /* Pods-puck.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4ZMW5MD4WT;
 				INFOPLIST_FILE = puck/Info.plist;
