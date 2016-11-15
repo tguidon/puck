@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D80E871A7691A117711B8EA /* Pods_puck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEB4B35D8C7136C7F8991C9 /* Pods_puck.framework */; };
+		E86A8E651DDA8F6200AA4100 /* RedditData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86A8E641DDA8F6200AA4100 /* RedditData.swift */; };
 		E8E48C531DDA7D630079B4EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E48C521DDA7D630079B4EC /* AppDelegate.swift */; };
 		E8E48C551DDA7D630079B4EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8E48C541DDA7D630079B4EC /* Assets.xcassets */; };
 		E8E48C581DDA7D630079B4EC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E48C561DDA7D630079B4EC /* MainMenu.xib */; };
@@ -19,6 +20,7 @@
 		666FDB1D89030AB04C0CD3AD /* Pods-puck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-puck.debug.xcconfig"; path = "Pods/Target Support Files/Pods-puck/Pods-puck.debug.xcconfig"; sourceTree = "<group>"; };
 		7A2B4B4AABC4ED4B323E89B9 /* Pods-puck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-puck.release.xcconfig"; path = "Pods/Target Support Files/Pods-puck/Pods-puck.release.xcconfig"; sourceTree = "<group>"; };
 		BFEB4B35D8C7136C7F8991C9 /* Pods_puck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_puck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E86A8E641DDA8F6200AA4100 /* RedditData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditData.swift; sourceTree = "<group>"; };
 		E8E48C4F1DDA7D630079B4EC /* puck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = puck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8E48C521DDA7D630079B4EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8E48C541DDA7D630079B4EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				E8E48C521DDA7D630079B4EC /* AppDelegate.swift */,
 				E8E48C611DDA863E0079B4EC /* Utilities.swift */,
 				E8E48C5F1DDA805F0079B4EC /* NHL.swift */,
+				E86A8E641DDA8F6200AA4100 /* RedditData.swift */,
 				E8E48C541DDA7D630079B4EC /* Assets.xcassets */,
 				E8E48C561DDA7D630079B4EC /* MainMenu.xib */,
 				E8E48C591DDA7D630079B4EC /* Info.plist */,
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8E48C621DDA863E0079B4EC /* Utilities.swift in Sources */,
+				E86A8E651DDA8F6200AA4100 /* RedditData.swift in Sources */,
 				E8E48C601DDA805F0079B4EC /* NHL.swift in Sources */,
 				E8E48C531DDA7D630079B4EC /* AppDelegate.swift in Sources */,
 			);

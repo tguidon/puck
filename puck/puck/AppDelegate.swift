@@ -16,20 +16,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     @IBOutlet weak var getNewPostsMenuItem: NSMenuItem!
     @IBOutlet weak var soundEnabledMenuItem: NSMenuItem!
     
-    struct redditData {
-        var title: String?
-        var url: String?
-    }
-    
-    var data = redditData(title: nil, url: nil)
-    
     let waitTime: TimeInterval = 60.0
     let url = "https://www.reddit.com/r/hockey/new/.json"
     
-    let nhl = NHL()
-    var timer = Timer()
     let statusItem = NSStatusBar.system().statusItem(withLength: -1)
     let defaults = UserDefaults.standard
+    let nhl = NHL()
+    var timer = Timer()
+    var redditData = RedditData(title: nil, url: nil)
+    
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // notification delegate
@@ -49,19 +44,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         // schedule and start the reddit polling by default
         scheduleTimer()
     }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
     
     // MARK: - User Notification Center Delegate Methods
     func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
         if (notification == notification) {
-            if let urlString = notification.userInfo?["url"] as? String,
-                let url = NSURL(string: urlString) {
-                NSWorkspace.shared().open(url as URL)
+            guard let urlString = notification.userInfo?["url"] as? String,
+                let url = URL(string: urlString) else {
+                    print("Error: Building url from notification string")
+                    return
             }
+            NSWorkspace.shared().open(url)
         }
+    }
+    
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        return true
     }
 
     
@@ -103,25 +100,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         NSApplication.shared().terminate(self)
     }
     
-    
-    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
-        return true
-    }
-    
-    func scheduleTimer() {
-        timer = Timer.scheduledTimer(timeInterval: waitTime, target: self,
-                                                       selector: #selector(AppDelegate.pollHockeyData), userInfo: nil, repeats: true)
-        timer.fire()
-    }
-    
     // MARK: - Show Notification of new post
-    
-    func showNotification(title: String, url: String) -> Void {
+    func showNotification(_ title: String,_ url: String) -> Void {
         let notification = NSUserNotification()
-        
         notification.title = "New Post in r/hockey 🏒"
         notification.informativeText = title
         notification.userInfo = ["url": url]
+        notification.hasActionButton = true
         
         let sound = defaults.bool(forKey: "soundEnabled")
         if sound {
@@ -130,10 +115,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             notification.soundName = nil
         }
         
-        notification.isPresented
-        notification.hasActionButton = true
-        
         NSUserNotificationCenter.default.deliver(notification)
+    }
+    
+    
+    // MARK: - Reddit Data Polling
+    func scheduleTimer() {
+        timer = Timer.scheduledTimer(timeInterval: waitTime, target: self,
+                                     selector: #selector(AppDelegate.pollHockeyData), userInfo: nil, repeats: true)
+        timer.fire()
     }
     
     func pollHockeyData() {
@@ -143,25 +133,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     func getHockeyData(url: String) {
         Alamofire.request(url)
             .responseJSON { response in
+                guard let data = response.result.value else {
+                    print("Error: Data does not exist")
+                    return
+                }
                 
-                if let data = response.result.value {
-                    let json = JSON(data)
-                    
-                    if let title = json["data"]["children"][0]["data"]["title"].string,
-                        let url = json["data"]["children"][0]["data"]["url"].string {
-                        if url != self.data.url {
-                            self.data.title = title
-                            self.data.url = url
-                            
-                            self.showNotification(title: title, url: url)
-                        }
-                    } else {
-                        print("Error: \(json["data"]["children"][0]["data"]["title"])")
-                        print("Error: \(json["data"]["children"][0]["data"]["url"])")
-                    }
+                let json = JSON(data)
+                guard let title = json["data"]["children"][0]["data"]["title"].string,
+                    let url = json["data"]["children"][0]["data"]["url"].string else {
+                        print("Error: Title of URL invalid")
+                        return
+                }
+                
+                if url != self.redditData.url {
+                    self.redditData.title = title
+                    self.redditData.url = url
+                    self.showNotification(title, url)
                 }
         }
     }
-
 }
-
